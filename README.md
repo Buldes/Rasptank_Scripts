@@ -10,6 +10,10 @@ The camera is right now not in use.
 The Raspberry need a Setup. You will find a automatically Setup [here](https://www.adeept.com/learn/detail-34.html).
 (Install _Zip-Rescource_ and run _setup.py_ on Raspberry; The Zip-Recourse is from _Adeept_) 
 
+### 1.3 sys_info.py
+_sys_info.py_ is for the Raspberry. 
+To make it work, you need to install _psutil_. Run "pip3 install psutil" on Terminal on Raspberry. 
+
 ---
 
 ## How to use
