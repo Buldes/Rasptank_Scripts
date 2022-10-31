@@ -7,8 +7,8 @@
 The camera is right now not in use.
 
 ### 1.2 Setup
-The Raspberry need a Setup. You will find a automatically Setup [here](https://www.adeept.com/learn/detail-34.html).
-(Install _Zip-Rescource_ and run _setup.py_ on Raspberry; The Zip-Recourse is from _Adeept_) 
+The Raspberry need a Setup. You will find a automatically Setup [here](https://github.com/adeept/Adeept_RaspTank).
+(Download and run _setup.py_ on Raspberry; The Script is from _Adeept_) 
 
 ### 1.3 sys_info.py
 _sys_info.py_ is for the Raspberry. 
@@ -28,7 +28,7 @@ You will find 2 different Servers:
 
 You won't need all. 
 
-### Client
+### 2.2 Client
 You have to put your Raspberrys IP-Addres in the Client script that you use. 
 ```
 1. 【...】
@@ -36,3 +36,6 @@ You have to put your Raspberrys IP-Addres in the Client script that you use.
 3. 【...】
 ```
 (always Line)
+
+### 2.3 Paths
+For _Client_V2_2.py_ you need to write in the path of _bg.jpg_ in Line .
