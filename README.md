@@ -31,11 +31,11 @@ You won't need all.
 ### 2.2 Client
 You have to put your Raspberrys IP-Addres in the Client script that you use. 
 ```
-1. 【...】
-2.  ip_addr = [ip_addres]
-3. 【...】
+15. 【...】
+16.  ip_addr = [your ip_addres]
+17. 【...】
 ```
-(always Line)
+(always Line 16 )
 
 ### 2.3 Paths
 For _Client_V2_2.py_ you need to write in the path of _bg.jpg_ in Line .
