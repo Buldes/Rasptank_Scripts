@@ -27,3 +27,12 @@ You will find 2 different Servers:
     + Client V2.2
 
 You won't need all. 
+
+### Client
+You have to put your Raspberrys IP-Addres in the Client script that you use. 
+```
+1. 【...】`
+2.  ip_addr = [ip_addres]
+3. 【...】
+```
+(always Line )
