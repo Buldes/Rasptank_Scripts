@@ -12,7 +12,11 @@ while 1:
     try:
         client = socket.socket(socket.AF_INET,
                                socket.SOCK_STREAM)
-        server_addr = ('192.168.178.31', 1501)
+
+        ip_addr = '[youre ip address]
+
+        server_addr = (ip_addr, 1501)
+
         client.connect(server_addr)
         time.sleep(0.2)
         client.send(bytes("-VERBUNDEN-    -Test:2/3:OK", "utf8"))
@@ -45,7 +49,7 @@ arm_15_position = 360
 def w_press(event):
     global speed, status
     debug.configure(
-        text="Ketten: Vorwärts      (Motor_Links = Vorwärts, Motor_Rechts = Vorwärts, speed = " + str(speed) + ")")
+        text="Chain: forward      (speed = " + str(speed) + ")")
     if status != "w":
         status = "w"
         client.send(bytes("w-go", "utf8"))
@@ -54,7 +58,7 @@ def w_press(event):
 def a_press(event):
     global speed, status
     debug.configure(
-        text="Ketten: Links         (Motor_Links = Vorwärts, Motor_Rechts = Rückwärts, speed = " + str(speed) + ")")
+        text="Chain: left         (speed = " + str(speed) + ")")
     if status != "a":
         status = "a"
         client.send(bytes("a-go", "utf8"))
@@ -63,7 +67,7 @@ def a_press(event):
 def s_press(event):
     global speed, status
     debug.configure(
-        text="Ketten: Rückwärts     (Motor_Links = Rückwärts, Motor_Rechts = Rückwärts, speed = " + str(speed) + ")")
+        text="chain: backward     (speed = " + str(speed) + ")")
     if status != "s":
         status = "s"
         client.send(bytes("s-go", "utf8"))
@@ -72,7 +76,7 @@ def s_press(event):
 def d_press(event):
     global speed, status
     debug.configure(
-        text="Ketten: Rechts        (Motor_Links = Rückwärts, Motor_Rechts = Vorwärts, speed = " + str(speed) + ")")
+        text="chain: right        (speed = " + str(speed) + ")")
     if status != "d":
         status = "d"
         client.send(bytes("d-go", "utf8"))
@@ -80,7 +84,7 @@ def d_press(event):
 
 def arm_11_press_up(event):
     global arm_11_position, status
-    debug.configure(text="Arm_11 =                  (Grad = " + str(arm_11_position) + ")")
+    debug.configure(text="Arm_11 =                  (degree = " + str(arm_11_position) + ")")
     if status != "arm_11_up":
         status = "arm_11_up"
         client.send(bytes("k-go", "utf8"))
@@ -88,7 +92,7 @@ def arm_11_press_up(event):
 
 def arm_12_press_up(event):
     global arm_12_position, status
-    debug.configure(text="Arm_12 =                  (Grad = " + str(arm_12_position) + ")")
+    debug.configure(text="Arm_12 =                  (degree = " + str(arm_12_position) + ")")
     if status != "arm_12_up":
         status = "arm_12_up"
         client.send(bytes("f-go", "utf8"))
@@ -96,7 +100,7 @@ def arm_12_press_up(event):
 
 def arm_13_press_up(event):
     global arm_13_position, status
-    debug.configure(text="Arm_13 =                  (Grad = " + str(arm_13_position) + ")")
+    debug.configure(text="Arm_13 =                  (degree = " + str(arm_13_position) + ")")
     if status != "arm_13_up":
         status = "arm_13_up"
         client.send(bytes("z-go", "utf8"))
@@ -104,7 +108,7 @@ def arm_13_press_up(event):
 
 def arm_14_press_left(event):
     global arm_14_position, status
-    debug.configure(text="Arm_14 =                  (Grad = " + str(arm_14_position) + ")")
+    debug.configure(text="Arm_14 =                  (degree = " + str(arm_14_position) + ")")
     if status != "arm_14_left":
         status = "arm_14_left"
         client.send(bytes("u-go", "utf8"))
@@ -112,7 +116,7 @@ def arm_14_press_left(event):
 
 def arm_15_press_open(event):
     global arm_15_position, status
-    debug.configure(text="Arm_15 =                  (Grad = " + str(arm_15_position) + ")")
+    debug.configure(text="Arm_15 =                  (degree = " + str(arm_15_position) + ")")
     if status != "arm_15_open":
         status = "arm_15_open"
         client.send(bytes("o-go", "utf8"))
@@ -120,7 +124,7 @@ def arm_15_press_open(event):
 
 def arm_11_press_down(event):
     global arm_11_position, status
-    debug.configure(text="Arm_11 =                  (Grad = " + str(arm_11_position) + ")")
+    debug.configure(text="Arm_11 =                  (degree = " + str(arm_11_position) + ")")
     if status != "arm_11_down":
         status = "arm_11_down"
         client.send(bytes("m-go", "utf8"))
@@ -128,7 +132,7 @@ def arm_11_press_down(event):
 
 def arm_12_press_down(event):
     global arm_12_position, status
-    debug.configure(text="Arm_12 =                  (Grad = " + str(arm_12_position) + ")")
+    debug.configure(text="Arm_12 =                  (degree = " + str(arm_12_position) + ")")
     if status != "arm_12_down":
         status = "arm_12_down"
         client.send(bytes("c-go", "utf8"))
@@ -136,7 +140,7 @@ def arm_12_press_down(event):
 
 def arm_13_press_down(event):
     global arm_13_position, status
-    debug.configure(text="Arm_13 =                  (Grad = " + str(arm_13_position) + ")")
+    debug.configure(text="Arm_13 =                  (degree = " + str(arm_13_position) + ")")
     if status != "arm_13_down":
         status = "arm_13_down"
         client.send(bytes("g-go", "utf8"))
@@ -144,7 +148,7 @@ def arm_13_press_down(event):
 
 def arm_14_press_right(event):
     global arm_14_position, status
-    debug.configure(text="Arm_14 =                  (Grad = " + str(arm_14_position) + ")")
+    debug.configure(text="Arm_14 =                  (degree = " + str(arm_14_position) + ")")
     if status != "arm_14_right":
         status = "arm_14_right"
         client.send(bytes("i-go", "utf8"))
@@ -152,7 +156,7 @@ def arm_14_press_right(event):
 
 def arm_15_press_close(event):
     global arm_15_position, status
-    debug.configure(text="Arm_15 =                  (Grad = " + str(arm_15_position) + ")")
+    debug.configure(text="Arm_15 =                  (degree = " + str(arm_15_position) + ")")
     if status != "arm_15_close":
         status = "arm_15_close"
         client.send(bytes("p-go", "utf8"))
@@ -160,7 +164,7 @@ def arm_15_press_close(event):
 
 def stop_every(event):
     global status
-    debug.configure(text="Alle Motoren wurden gestoppt")
+    debug.configure(text="Every Motor stopped.")
     if status != "none":
         status = "none"
         client.send(bytes("Motor:stop", "utf8"))
@@ -278,7 +282,7 @@ def uss_servo_cpu():
             cpu_usage_list = list(input_server)
             del (cpu_usage_list[0])
             cpu_usage_value = "".join(cpu_usage_list)
-            cpu_usage.configure(text="Benutzung: " + cpu_usage_value + "%")
+            cpu_usage.configure(text="Usage: " + cpu_usage_value + "%")
 
 
 'tkinter'
@@ -289,11 +293,6 @@ main.configure(bg="white")
 main.geometry('3000x3000')
 
 # Buttons
-main_menu = tk.Button(text="Hautmenü", activebackground="grey", height=2, width=100, relief="flat", bg="white",
-                      command=menu_main)
-help_and_options_menu = tk.Button(text="Hilfe & Optionen", activebackground="grey", height=2, width=100, relief="flat",
-                                  bg="white", command=menu_hao)
-
 w = tk.Button(text="△", activebackground="grey", height=2, width=6, relief="groove", bg="white", font=("calibri", 17))
 a = tk.Button(text="◁", activebackground="grey", height=2, width=6, relief="groove", bg="white", font=("calibri", 17))
 d = tk.Button(text="▷", activebackground="grey", height=2, width=6, relief="groove", bg="white", font=("calibri", 17))
@@ -336,22 +335,22 @@ arm_15_close.place(x=973, y=365)
 
 # Lable
 debug = tk.Label(bg="white", height=1, width=194, relief="sunken", borderwidth=3, background="#eeeeee", anchor="w",
-                 text="Lade...")
+                 text="Loading...")
 linie1 = tk.Label(bg="white", height=1, width=100)
 
 cpu_sign = tk.Label(text="CPU", bg="#efefef", relief="flat", height=2, width=19)
-cpu_usage = tk.Label(text="Benutzung:  Lade...", bg="#efefef", relief="flat", height=1, width=19, anchor="w")
-cpu_temp = tk.Label(text="Temperatur: Lade...", bg="#efefef", relief="flat", height=1, widt=19, anchor="w")
+cpu_usage = tk.Label(text="Usage:  Loding...", bg="#efefef", relief="flat", height=1, width=19, anchor="w")
+cpu_temp = tk.Label(text="Temperatur: Loding...", bg="#efefef", relief="flat", height=1, widt=19, anchor="w")
 
 Ketten = tk.Label(text="Ketten", bg="#efefef", relief="flat", height=4, width=9)
-arm_11 = tk.Label(text="        Nr.11        ", bg="#efefef", relief="flat")
-arm_12 = tk.Label(text="        Nr.12        ", bg="#efefef", relief="flat")
-arm_13 = tk.Label(text="        Nr.13        ", bg="#efefef", relief="flat")
-arm_14 = tk.Label(text="Nr.\n14", bg="#efefef", relief="flat", height=3)
-arm_15 = tk.Label(text="        Nr.15        ", bg="#efefef", relief="flat")
+arm_11 = tk.Label(text="        No.11        ", bg="#efefef", relief="flat")
+arm_12 = tk.Label(text="        No.12        ", bg="#efefef", relief="flat")
+arm_13 = tk.Label(text="        No.13        ", bg="#efefef", relief="flat")
+arm_14 = tk.Label(text="No.\n14", bg="#efefef", relief="flat", height=3)
+arm_15 = tk.Label(text="        No.15        ", bg="#efefef", relief="flat")
 
-USS = tk.Label(bg="green", relief="flat", height=1, width=100, text="Lade...", anchor="e")
-USS_sign = tk.Label(text="Ultraschallsensor", bg="#efefef", relief="flat")
+USS = tk.Label(bg="green", relief="flat", height=1, width=100, text="Loding...", anchor="e")
+USS_sign = tk.Label(text="Ultrasonic-sensor", bg="#efefef", relief="flat")
 USS_symbol = tk.Label(text="∘⪢", bg="#efefef", relief="flat")
 
 line_tracking_sign = tk.Label(bg="light grey", height=1, width=33, text="Line Tracking Modul")
