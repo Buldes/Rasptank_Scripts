@@ -27,7 +27,7 @@ for a in 4, 14, 15, 17, 27, 18:
 pwm_A = GPIO.PWM(4, 1000)
 pwm_B = GPIO.PWM(17, 1000)
 
-#Ultraschallsensor
+#Ultrasonic - Sensor
 trigger = 11
 ec = 8
 GPIO.setup(trigger, GPIO.OUT, initial=GPIO.LOW)
@@ -61,15 +61,6 @@ GPIO.setup(16, GPIO.IN)
 GPIO.setup(20, GPIO.IN)
 
 'Variable'
-#global move_arm_Variable
-#global servo_11_position
-#global servo_12_position
-#global servo_13_position
-#global servo_14_position
-#global servo_15_position
-#global color_wait_stop
-#global color_arm_stop
-#global w_erlauben
 # ---------------------------------------------------------------------
 servo_11_position = 360
 servo_12_position = 360
@@ -87,8 +78,6 @@ Motor_B_EN = 17
 Motor_B_Pin1 = 27
 Motor_B_Pin2 = 18
 color_wait_stop = False
-
-# Variable for Data Analyse
 
 'Definitionen'
 
@@ -343,16 +332,17 @@ _thread.start_new_thread(color_wait, ())
 'server'
 server = socket.socket(socket.AF_INET,
                        socket.SOCK_STREAM)
-server.bind(('192.168.178.31', 1501))
+server.bind((str(socket.gethostbyname(socket.gethostname())), 1501))
 server.listen(1)
 
 # Message
 print("Server online.")
+print("Your IP-Addres:, socket.gethostbyname(socket.gethostname()))
 
 # Verbunden?
 (client, addr) = server.accept()
 time.sleep(0.5)
-print("Verbunden - Test 1/3")
+print("Connected")
 
 # vorkehrungen
 thread = _thread.start_new_thread(cleanup, ())
@@ -382,87 +372,87 @@ while 1:
                 color_wipe(k, 100, 100, 100)
             for k in 0, 3, 9, 6:
                 color_wipe(k, 100, 0, 0)
-        print("Status-Motor : Stop")
+        print("Motor : Stop")
     elif msg == "w-go" and w_erlauben == True:
         color_arm_stop = True
         color_move_forward()
         move_motor("forward")
-        print("Status-Motor : Vorwärts")
+        print("Motor : forward")
     elif msg == "s-go":
         color_arm_stop = True
         color_move_backward()
         move_motor("backward")
-        print("Status-Motor : Rückwärts")
+        print("Motor : backward)
     elif msg == "a-go":
         color_arm_stop = True
         _thread.start_new_thread(color_move_left, ())
         move_motor("left")
-        print("Status-Motor : Links")
+        print("Motor : left)
     elif msg == "d-go":
         color_arm_stop = True
         _thread.start_new_thread(color_move_right, ())
         move_motor("right")
-        print("Status-Motor : Rechts")
+        print("Motor : right)
     elif msg == "c-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_minus, (12, ))
-        print("Status-Arm-Unten : Runter")
+        print("Arm-1. Motor : down)
     elif msg == "f-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_plus, (12, ))
-        print("Status-Arm-Unten : Hoch")
+        print("Arm-1. Motor : up")
     elif msg == "g-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_plus, (13, ))
-        print("Status-Arm-2.Motor : Runter")
+        print("Arm-2.Motor : down")
     elif msg == "z-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_minus, (13, ))
-        print("Status-Arm-2.Motor : Hoch")
+        print("Arm-2.Motor : up")
     elif msg == "u-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_minus, (14, ))
-        print("Status-Arm-3.Motor : Links")
+        print("Arm-3.Motor : left")
     elif msg == "i-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_plus, (14, ))
-        print("Status-Arm-3.Motor : Rechts")
+        print("Arm-3.Motor : right")
     elif msg == "o-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_minus, (15, ))
-        print("Status-Arm-4.Motor : Auf")
+        print("Arm-4.Motor : open")
     elif msg == "p-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_plus, (15, ))
-        print("Status-Arm-4.Motor : Zu")
+        print("Arm-4.Motor : close")
     elif msg == "m-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_plus, (11, ))
-        print("Status-Kamera : Runter")
+        print("Kamera-Motor : down")
     elif msg == "k-go":
         color_arm_stop = False
         _thread.start_new_thread(color_arm, ())
         move_arm_Variable = True
         thread = _thread.start_new_thread(move_arm_minus, (11, ))
-        print("Status-Kamera : Hoch")
+        print("Kamera-Motor : up")
     elif msg == "-VERBUNDEN-    -Test:2/3:OK" or msg == "-VERBUNDEN-    -Test:3/3:OK":
         print(msg)
     elif w_erlauben == True:
