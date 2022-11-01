@@ -12,7 +12,6 @@ while 1:
     try:
         client = socket.socket(socket.AF_INET,
                                socket.SOCK_STREAM)
-
         # ip address 
         ip_addr = '[your ip address]' 
 
