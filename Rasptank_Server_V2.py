@@ -12,7 +12,7 @@ import RPi.GPIO as GPIO
 from rpi_ws281x import *
 import sys_info
 
-print("Server started...")
+print("Server starts...")
 
 "[Einstellen]"
 
