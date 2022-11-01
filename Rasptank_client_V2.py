@@ -13,7 +13,7 @@ while 1:
         client = socket.socket(socket.AF_INET,
                                socket.SOCK_STREAM)
 
-        ip_addr = '[youre ip address]
+        ip_addr = '[youre ip address]'
 
         server_addr = (ip_addr, 1501)
 
