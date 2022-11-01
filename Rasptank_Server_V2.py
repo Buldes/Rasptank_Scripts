@@ -408,7 +408,7 @@ except:
     print("[Error] Connection failed. \n Programm canceled...")
     sys.exit()
 
-print("Verbunden")
+print("Connected")
 
 "Start Programm"
 cleanup()
