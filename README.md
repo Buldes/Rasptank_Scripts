@@ -39,3 +39,8 @@ You have to put your Raspberrys IP-Addres in the Client script that you use.
 
 ### 2.3 Paths
 For _Client_V2_2.py_ you need to write in the path of _bg.jpg_ in Line 334.
+```
+333. [...]
+334. bg = tk.PhotoImage(file="[bg.gif path here]")
+335. [...]
+```
