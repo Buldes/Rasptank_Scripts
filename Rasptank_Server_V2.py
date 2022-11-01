@@ -12,7 +12,7 @@ import RPi.GPIO as GPIO
 from rpi_ws281x import *
 import sys_info
 
-print("Server startet...")
+print("Server started...")
 
 "[Einstellen]"
 
@@ -396,10 +396,11 @@ server = socket.socket(socket.AF_INET,
 # ip_addr =  '192.168.178.31'   # WLan
 ip_addr = '192.168.198.172'     # Hotspot
 
-server.bind((ip_addr, 1501))
+server.bind((str(socket.gethostbyname(socket.gethostname())), 1501))
 server.listen(1)
 
-print("Server online... \nWarte auf Verbindung")
+print("Server online... \nWaiting for Connection.")
+print("Your IP-Addres: ", socket.gethostbyname(socket.gethostname()))
 
 # Connected
 try:
@@ -407,7 +408,7 @@ try:
     time.sleep(0.5)
     color_breath_stop = True
 except:
-    print("[FEHLER] Verbindung fehlgeschlagen. \n Programm wird beendet...")
+    print("[Error] Connection failed. \n Programm...")
     sys.exit()
 
 print("Verbunden")
