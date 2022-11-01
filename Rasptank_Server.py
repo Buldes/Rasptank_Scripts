@@ -9,7 +9,7 @@ from rpi_ws281x import *
 import sys_info
 
 # Message
-print("Server startet ...")
+print("Server starts ...")
 
 
 'Einstellen'
