@@ -13,16 +13,15 @@ while 1:
         client = socket.socket(socket.AF_INET,
                                socket.SOCK_STREAM)
 
-        # ip_addr =  '192.168.178.31'   # WLan
-        ip_addr = '192.168.113.172'  # Hotspot
+        # ip address 
+        ip_addr = '[your ip address]' 
 
         client.connect((ip_addr, 1501))
         time.sleep(0.2)
         break
     except:
-        yesno = tk_message.askyesno("⛔Verbindung fehlgeschlagen", "Es konnte keine Verbindung zum Server hergestellt."
-                                                                  "werden \n Soll versucht werden eine neue verbindung "
-                                                                  "zu erstellen?")
+        yesno = tk_message.askyesno("Connection Failed", "There is no connection to the Server."
+                                                                  "\n Should a new connection be make?")
         if yesno:
             continue
         break
@@ -321,7 +320,7 @@ def uss_servo_cpu():
             cpu_usage_list = list(input_server)
             del (cpu_usage_list[0])
             cpu_usage_value = "".join(cpu_usage_list)
-            cpu_usage.configure(text="Benutzung: " + cpu_usage_value + "%")
+            cpu_usage.configure(text="Usage: " + cpu_usage_value + "%")
 
 
 'tkinter'
@@ -332,7 +331,7 @@ main.configure(bg="#ffffff")
 main.geometry("1920x1080")
 
 # BG
-bg = tk.PhotoImage(file="bg.gif")
+bg = tk.PhotoImage(file="[bg.gif path here]")
 canvas1 = tk.Canvas(main, width=400, height=100, bg="#ffffff")
 canvas1.pack(fill="both", expand=True)
 canvas1.create_image(0, 0, image=bg, anchor="nw")
@@ -381,18 +380,18 @@ arm_15_plus.place(x=973, y=365)
 
 # Lable
 cpu_sign = tk.Label(text="CPU", bg="#afafaf", relief="flat", height=2, width=19)
-cpu_usage = tk.Label(text="Benutzung:  Lade...", bg="#efefef", relief="flat", height=1, width=19, anchor="w")
-cpu_temp = tk.Label(text="Temperatur: Lade...", bg="#efefef", relief="flat", height=1, widt=19, anchor="w")
+cpu_usage = tk.Label(text="Usage:  Loding...", bg="#efefef", relief="flat", height=1, width=19, anchor="w")
+cpu_temp = tk.Label(text="Temperatur: Loding...", bg="#efefef", relief="flat", height=1, widt=19, anchor="w")
 
 Ketten = tk.Label(text="Ketten", bg="#efefef", relief="flat", height=4, width=9)
-arm_11 = tk.Label(text="        Nr.11        ", bg="#efefef", relief="flat")
-arm_12 = tk.Label(text="        Nr.12        ", bg="#efefef", relief="flat")
-arm_13 = tk.Label(text="        Nr.13        ", bg="#efefef", relief="flat")
-arm_14 = tk.Label(text="Nr.\n14", bg="#efefef", relief="flat", height=3)
-arm_15 = tk.Label(text="        Nr.15        ", bg="#efefef", relief="flat")
+arm_11 = tk.Label(text="        No.11        ", bg="#efefef", relief="flat")
+arm_12 = tk.Label(text="        No.12        ", bg="#efefef", relief="flat")
+arm_13 = tk.Label(text="        No.13        ", bg="#efefef", relief="flat")
+arm_14 = tk.Label(text="No.\n14", bg="#efefef", relief="flat", height=3)
+arm_15 = tk.Label(text="        No.15        ", bg="#efefef", relief="flat")
 
-USS = tk.Label(bg="green", relief="flat", height=1, width=100, text="Lade...", anchor="e")
-USS_sign = tk.Label(text="Ultraschallsensor", bg="#efefef", relief="flat")
+USS = tk.Label(bg="green", relief="flat", height=1, width=100, text="Loding...", anchor="e")
+USS_sign = tk.Label(text="Ultrasonic-sensor", bg="#efefef", relief="flat")
 USS_symbol = tk.Label(text="∘⪢", bg="#efefef", relief="flat")
 
 line_tracking_sign = tk.Label(bg="light grey", height=1, width=33, text="Line Tracking Modul")
@@ -420,7 +419,7 @@ line_tracking_right.place(x=280, y=525)
 line_tracking_middle.place(x=200, y=525)
 line_tracking_left.place(x=120, y=525)
 
-'Steuerung'
+'Controll'
 for button in range(11, 16):
     exec("arm_" + str(button) + "_minus.bind('<ButtonPress-1>', arm_" + str(button) + "_press_minus)")
     exec("arm_" + str(button) + "_minus.bind('<ButtonRelease-1>', arm_" + str(button) + "_press_minus)")
