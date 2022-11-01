@@ -393,9 +393,6 @@ _thread.start_new_thread(color_breath_ani, ())
 server = socket.socket(socket.AF_INET,
                        socket.SOCK_STREAM)
 
-# ip_addr =  '192.168.178.31'   # WLan
-ip_addr = '192.168.198.172'     # Hotspot
-
 server.bind((str(socket.gethostbyname(socket.gethostname())), 1501))
 server.listen(1)
 
@@ -408,7 +405,7 @@ try:
     time.sleep(0.5)
     color_breath_stop = True
 except:
-    print("[Error] Connection failed. \n Programm...")
+    print("[Error] Connection failed. \n Programm canceled...")
     sys.exit()
 
 print("Verbunden")
@@ -427,7 +424,7 @@ while True:
     try:
         msg = str(client.recv(128), "UTF8")
     except:
-        print("Programm wird beendet...")
+        print("Conection lost \n Program canceled...")
         cleanup()
         sys.exit()
 
