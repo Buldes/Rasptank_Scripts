@@ -407,30 +407,30 @@ s = tkinter.Button(text="\/", fg="red", bg="black", width=8, height=3, activebac
 # k = kamera - hoch
 # m = kamera -runter
 
-f = tkinter.Button(command=f_, text="Hoch 🔼 \n -Motoer Unten", bg="black", fg="red", width=12, height=3,
+f = tkinter.Button(command=f_, text="UP 🔼 \n - 1. Motor", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
-c = tkinter.Button(command=c_, text="Runter 🔽 \n -Motor Unten", bg="black", fg="red", width=12, height=3,
-                   activebackground="dark red")
-
-z = tkinter.Button(command=z_, text="Hoch 🔼 /\ \n -2. Motor", bg="black", fg="red", width=12, height=3,
-                   activebackground="dark red")
-g = tkinter.Button(command=g_, text="Runter 🔽 \/ \n -2. Motoer", bg="black", fg="red", width=12, height=3,
+c = tkinter.Button(command=c_, text="DOWN 🔽 \n - 1. Motor", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
 
-u = tkinter.Button(command=u_, text="<-🔄 Links \n -3. Motor", bg="black", fg="red", width=12, height=3,
+z = tkinter.Button(command=z_, text="UP 🔼 /\ \n - 2. Motor", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
-i = tkinter.Button(command=i_, text="Rechts 🔄->\n -3. Motor", bg="black", fg="red", width=12, height=3,
+g = tkinter.Button(command=g_, text="DOWN 🔽 \/ \n - 2. Motor", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
 
-o = tkinter.Button(command=o_, text="Auf \n -4. Motor", bg="black", fg="red", width=12, height=3,
+u = tkinter.Button(command=u_, text="<-🔄 LEFT \n - 3. Motor", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
-p = tkinter.Button(command=p_, text="Zu\n -4. Motor", bg="black", fg="red", width=12, height=3,
+i = tkinter.Button(command=i_, text="RIGHT 🔄->\n - 3. Motor", bg="black", fg="red", width=12, height=3,
+                   activebackground="dark red")
+
+o = tkinter.Button(command=o_, text="OPEN \n - 4. Motor", bg="black", fg="red", width=12, height=3,
+                   activebackground="dark red")
+p = tkinter.Button(command=p_, text="CLOSE \n - 4. Motor", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
 
 # Kamera
-k = tkinter.Button(command=k_, text="Hoch🔼 \n -Kamera", bg="black", fg="red", width=12, height=3,
+k = tkinter.Button(command=k_, text="UP 🔼 \n -Kamera", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
-m = tkinter.Button(command=m_, text="Runter🔽 \n -Kamera", bg="black", fg="red", width=12, height=3,
+m = tkinter.Button(command=m_, text="DOWN 🔽 \n -Kamera", bg="black", fg="red", width=12, height=3,
                    activebackground="dark red")
 
 # Buttons erscheinen lassen
@@ -478,11 +478,11 @@ abstand3 = tkinter.Label(height=1, width=1, bg="#111010", fg="#111010", text="-"
 abstand4 = tkinter.Label(height=1, width=1, bg="#111010", fg="#111010", text="")
 
 # Name
-bild_name = tkinter.Label(text="Live Video Übertragung", height=1, width=25, bg="black", fg="red", relief="groove")
-U_Schall_Sensor_Name = tkinter.Label(text="Ultra-Schall-Sensor", bg="black", fg="red", highlightcolor="red")
+bild_name = tkinter.Label(text="Live Video", height=1, width=25, bg="black", fg="red", relief="groove")
+U_Schall_Sensor_Name = tkinter.Label(text="Ultrasonic-sensor", bg="black", fg="red", highlightcolor="red")
 
 # Später weg
-bild_lable = tkinter.Label(text="--KEIN VIDEO--", height=30, width=90, bg="#131313", master=bild)
+bild_lable = tkinter.Label(text="--NO VIDEO--", height=30, width=90, bg="#131313", master=bild)
 
 # Lable erscheinen lassen
 # Name
