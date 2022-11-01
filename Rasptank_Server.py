@@ -337,7 +337,7 @@ server.listen(1)
 
 # Message
 print("Server online.")
-print("Your IP-Addres:, socket.gethostbyname(socket.gethostname()))
+print("Your IP-Addres:", socket.gethostbyname(socket.gethostname()))
 
 # Verbunden?
 (client, addr) = server.accept()
