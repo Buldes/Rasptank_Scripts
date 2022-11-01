@@ -19,13 +19,10 @@ while 1:
 
         client.connect(server_addr)
         time.sleep(0.2)
-        client.send(bytes("-VERBUNDEN-    -Test:2/3:OK", "utf8"))
-        client.send(bytes("-VERBUNDEN-    -Test:3/3:OK", "utf8"))
         break
     except:
-        yesno = tk_message.askyesno("⛔Verbindung fehlgeschlagen", "Es konnte keine Verbindung zum Server hergestellt."
-                                                                 "werden \n Soll versucht werden eine neue verbindung "
-                                                                 "zu erstellen?")
+        yesno = tk_message.askyesno("Connection Failed", "There is no connectionto the server."
+                                                                 " \n Should a new connection be make?")
         if yesno:
             continue
         break
