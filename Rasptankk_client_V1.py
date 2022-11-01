@@ -13,6 +13,7 @@ import sys
 # Variabeln
 servo_11_position = 360
 servo_12_position = 360
+ip_addr = '[your ip address]'
 servo_13_position = 360
 servo_14_position = 360
 servo_15_position = 360
@@ -24,21 +25,19 @@ event = 1
 
 'Verbindung zum Server'
 # Info
-print("Verbinde zum Server...")
+print("Connect to server...")
 try:
     # Verbinung
     client = socket.socket(socket.AF_INET,
                            socket.SOCK_STREAM)
-    server_addr = ('192.168.35.172', 1501)
+    server_addr = (ip_addr, 1501)
     client.connect(server_addr)
     time.sleep(0.5)
-    client.send(bytes("-VERBUNDEN-    -Test:2/3:OK", "utf8"))
-    client.send(bytes("-VERBUNDEN-    -Test:3/3:OK", "utf8"))
-    print("Mit Server Verbunden")
+    print("Connected. ")
     time.sleep(0.5)
 except:
-    tkinter.messagebox.showerror("↑↓Verbindung",
-                                 "Keine Verbindung Zum Server \n -Prüfe die Intenetverbindung \n -Prüfe ob der Server online ist")
+    tkinter.messagebox.showerror("Connection",
+                                 "No connection to the server. Check if the server is online")
     sys.exit()
 
 
@@ -350,7 +349,7 @@ def k__(k):
 # ___________________________________________________________
 
 def exit_():
-    exityesno = tkinter.messagebox.askyesno("Verlassen", "Wirklich Verlassen?")
+    exityesno = tkinter.messagebox.askyesno("Exit", "Do you really want to exit?")
     if exityesno:
         main.destroy()
 
